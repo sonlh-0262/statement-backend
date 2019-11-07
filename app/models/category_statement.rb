@@ -12,4 +12,6 @@
 class CategoryStatement < ApplicationRecord
   belongs_to :statement
   belongs_to :category
+
+  accepts_nested_attributes_for :category
 end
