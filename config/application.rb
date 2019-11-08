@@ -15,5 +15,14 @@ module Backend
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    config.middleware.insert_before Rack::Runtime, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*',
+        headers: :any,
+        methods: [:get, :put, :post, :patch, :delete, :options]
+      end
+    end
   end
 end
